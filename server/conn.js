@@ -1,4 +1,3 @@
-// conn.js
 const mysql = require('mysql2/promise');
 
 const initMysql = async () => {

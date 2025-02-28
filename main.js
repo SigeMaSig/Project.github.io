@@ -1,9 +1,9 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'mongodb+srv://sigema:root@grandhotel.gjoja.mongodb.net/granhotel?retryWrites=true&w=majority';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 window.onload = async () => {
         const selects = [
-            buildSelect,
+            buildSelect, 
             statusSelect
         ];
         selects.forEach(select => {

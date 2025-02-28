@@ -6,7 +6,7 @@ const port = 8000;
 const readData = require('./read');
 app.use(cors())
 
-app.get('/hotel', async (req, res) => {
+app.get('/hotel', async (req, res) => { 
   try {
     const building = req.query.building; 
     if (!building) {

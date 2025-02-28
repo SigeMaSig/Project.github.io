@@ -1,25 +1,35 @@
-const BASE_URL = 'http://localhost:5000'; // ใช้ URL ของ API ที่เราสร้างใน backend
+const BASE_URL = 'http://localhost:8000';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
-
 window.onload = async () => {
-    const selects = [
-        buildSelect, 
-        statusSelect
-    ];
+    try {
+        const selects = [
+            buildSelect,
+            statusSelect
+        ];
 
-    selects.forEach(select => {
-        select.addEventListener('change', async () => {
-            try {
-                await loadData(); 
-            } catch (error) {
-                console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-            }
+        selects.forEach(select => {
+            select.addEventListener('change', async () => {
+                try {
+                    await loadData(); 
+                } catch (error) {
+                    console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
+                } 
+            });
         });
-    });
-    await loadData();
+        await loadData();
+    } catch (error) {
+        console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
+    }
 }
-
+    
+    statusSelect.addEventListener('change', async () => {
+        try {
+            await loadData(); 
+        } catch (error) {
+            console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
+        }
+    });
 const loadData = async () => {
     try {
         const userDOM = document.getElementById('test');

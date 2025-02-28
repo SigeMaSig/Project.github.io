@@ -7,10 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <select name="building" id="building">
-        <option name="building" value="building1">ตึกที่ 1 </option>
-        <option name="building" value="building2">ตึกที่ 2</option>
-    </select>
+    <div>
+        เลือกตึก <select name="building" id="building">
+            <option name="building" value="building1">1 </option>
+            <option name="building" value="building2">2</option>
+        </select>
+        สถานะห้อง <select name="status" id="status">
+            <option name="building" value="All">ทั้งหมด</option>
+            <option name="building" value="Available">ว่าง</option>
+            <option name="building" value="Occupied">ไม่ว่าง</option>
+        </select>
+    </div>
     <div id="test"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="main.js"></script>

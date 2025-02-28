@@ -15,10 +15,18 @@ body {
 }
 
 .flex-container > div {
-    background-color: aqua;
     text-align: center;
     margin: 10px;
     padding: 20px;
-    flex: 1 1 calc(50% - 20px); /* ทำให้แต่ละช่องมีขนาดเท่ากันและขึ้นบรรทัดใหม่ทุก 2 แถว */
-    box-sizing: border-box; /* เพื่อให้ padding ไม่เกินขอบเขต */
+    flex: 1 1 calc(50% - 20px); 
+    box-sizing: border-box;
 }
+
+.Available{
+    background-color: rgb(128, 250, 115);
+}
+
+.Occupied {
+    background-color: rgb(255, 100, 100); 
+}
+

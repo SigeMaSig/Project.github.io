@@ -1,15 +1,19 @@
 // conn.js
-const mysql = require('mysql2/promise');
+const  MongoClient  = require('mongodb');
+
+const uri = 'mongodb+srv://sigema:root@grandhotel.gjoja.mongodb.net/?retryWrites=true&w=majority&appName=grandhotel';
+
+const client = new MongoClient(uri);
 
 const initMysql = async () => {
-  const conn = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'granhotel',
-    port: 3306
-  });
-  return conn;
+  try {
+    await client.connect();
+    console.log('Successfully connected to MongoDB');
+    const database = client.db('grandhotel'); 
+    return database; 
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+  }
 };
 
 module.exports = initMysql;

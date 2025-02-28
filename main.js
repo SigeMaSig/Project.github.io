@@ -1,22 +1,25 @@
-const BASE_URL = 'mongodb+srv://sigema:root@grandhotel.gjoja.mongodb.net/granhotel?retryWrites=true&w=majority';
+const BASE_URL = 'http://localhost:5000'; // ใช้ URL ของ API ที่เราสร้างใน backend
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
+
 window.onload = async () => {
-        const selects = [
-            buildSelect, 
-            statusSelect
-        ];
-        selects.forEach(select => {
-            select.addEventListener('change', async () => {
-                try {
-                    await loadData(); 
-                } catch (error) {
-                    console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-                } 
-            });
+    const selects = [
+        buildSelect, 
+        statusSelect
+    ];
+
+    selects.forEach(select => {
+        select.addEventListener('change', async () => {
+            try {
+                await loadData(); 
+            } catch (error) {
+                console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
+            }
         });
-        await loadData();
+    });
+    await loadData();
 }
+
 const loadData = async () => {
     try {
         const userDOM = document.getElementById('test');

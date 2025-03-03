@@ -4,12 +4,12 @@ const app = express();
 const readData = require('./read');  
 const port = 5432;
 
-// ใช้ cors เพื่ออนุญาตทุกโดเมน
+
 app.use(cors({ origin: '*' })); 
 
 app.get('/hotel', async (req, res) => { 
   try {
-    const building = req.query.building;  
+    const building = req.query.building; 
     if (!building) {
       return res.status(400).send({ error: 'กรุณาระบุตึก' });  
     }

@@ -6,7 +6,7 @@ const readData = async (building) => {
   if (building === 'building1') {
     build_rooms = 'building1_rooms';  
   } else {
-    build_rooms = 'building2_rooms';  
+    build_rooms = 'building1_rooms';  
   }
 
   

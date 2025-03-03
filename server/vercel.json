@@ -1,6 +1,14 @@
 {
-    "version": 2,
-    "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/hotel", "dest": "serve.js" }]
+    "headers": [
+      {
+        "source": "/hotel",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://sigemasig.github.io"
+          }
+        ]
+      }
+    ]
   }
   

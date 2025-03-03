@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:5432';
+const BASE_URL = window.location.hostname === "localhost" 
+    ? "http://localhost:5432" 
+    : "https://my-express-bxgan0xvn-chachapon-keecharoens-projects.vercel.app";
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 

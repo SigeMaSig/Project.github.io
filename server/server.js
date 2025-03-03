@@ -4,13 +4,9 @@ const app = express();
 const readData = require('./read');  
 const port = 5432;
 
-const corsOptions = {
-  origin: 'https://sigemasig.github.io', 
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-};
+// ใช้ cors เพื่ออนุญาตทุกโดเมน
+app.use(cors({ origin: '*' })); 
 
-app.use(express.json());
 app.get('/hotel', async (req, res) => { 
   try {
     const building = req.query.building;  

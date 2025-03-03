@@ -32,12 +32,11 @@ const loadData = async () => {
         const building = buildSelect.value;
         const status = statusSelect.value;
 
-        const response = await axios.get(`${BASE_URL}/hotel?building=${building}`, {
-            headers: {
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZnlldmF3anFtY25oZXNoamN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5NjcxODIsImV4cCI6MjA1NjU0MzE4Mn0.dYK4XkwRxHzzSfpZtozQjhb7OqNs3jxl82ff8gCR3Tc`
-            }
-        });
-        
+        console.log(`Building: ${building}, Status: ${status}`);  // ตรวจสอบค่า building และ status
+
+        const response = await axios.get(`${BASE_URL}/hotel?building=${building}`);
+
+        console.log(response.data);  // ตรวจสอบข้อมูลที่ได้รับจาก API
 
         if (!response.data || response.data.length === 0) {
             userDOM.innerHTML = "<p>ไม่มีข้อมูลห้องพัก</p>";
@@ -66,3 +65,4 @@ const loadData = async () => {
         document.getElementById('test').innerHTML = "<p>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>";
     }
 }
+

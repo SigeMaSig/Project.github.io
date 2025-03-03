@@ -9,6 +9,7 @@ const corsOptions = {
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.get('/hotel', async (req, res) => { 

@@ -4,8 +4,7 @@ const app = express();
 const readData = require('./read');  
 const port = 5432;
 
-
-app.use(cors({ origin: '*' })); 
+app.use(cors());
 
 app.get('/hotel', async (req, res) => { 
   try {

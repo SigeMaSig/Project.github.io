@@ -4,7 +4,8 @@ const app = express();
 const readData = require('./read');  
 const port = 5432;
 
-app.use(cors());
+app.use(cors({ origin: 'https://sigemasig.github.io' }));
+
 
 app.get('/hotel', async (req, res) => { 
   try {

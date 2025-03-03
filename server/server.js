@@ -4,7 +4,11 @@ const app = express();
 const readData = require('./read');  
 const port = 5432;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://sigemasig.github.io', 
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
 
 app.use(express.json());
 app.get('/hotel', async (req, res) => { 

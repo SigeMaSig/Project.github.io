@@ -1,10 +1,8 @@
-// server.js
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const readData = require('./read');  
-const port = 5432;
 
+const app = express();
 app.use(cors());
 
 app.get('/hotel', async (req, res) => { 
@@ -20,6 +18,4 @@ app.get('/hotel', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Run server at port ${port}`);
-});
+module.exports = app;

@@ -1,13 +1,12 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'http://localhost:5432';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
+
 window.onload = async () => {
     try {
-        const selects = [
-            buildSelect,
-            statusSelect
-        ];
+        const selects = [buildSelect, statusSelect];
 
+        // เมื่อมีการเลือกใน select
         selects.forEach(select => {
             select.addEventListener('change', async () => {
                 try {
@@ -17,29 +16,27 @@ window.onload = async () => {
                 } 
             });
         });
+
+        // เรียกโหลดข้อมูลครั้งแรกเมื่อหน้าถูกโหลด
         await loadData();
     } catch (error) {
         console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
     }
 }
-    
-    statusSelect.addEventListener('change', async () => {
-        try {
-            await loadData(); 
-        } catch (error) {
-            console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-        }
-    });
+
 const loadData = async () => {
     try {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
-        const status = statusSelect.value;        
+        const status = statusSelect.value;
+
         const response = await axios.get(`${BASE_URL}/hotel?building=${building}`);
+
         if (!response.data || response.data.length === 0) {
             userDOM.innerHTML = "<p>ไม่มีข้อมูลห้องพัก</p>";
             return;
         }
+
         let board = '';
         response.data.forEach((room) => {
             if (status === 'All' || room.status === status) {
@@ -54,6 +51,7 @@ const loadData = async () => {
                 </div>`;
             }
         });
+
         userDOM.className = 'flex-container';
         userDOM.innerHTML = board;
     } catch (error) {

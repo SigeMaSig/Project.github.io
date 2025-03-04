@@ -2,11 +2,10 @@ const BASE_URL = 'http://localhost:5432';
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
-const roomNumberInput = document.querySelector('input[name="room_number"]');
 
 window.onload = async () => {
     try {
-        const selects = [buildSelect, statusSelect, roomNumberInput];
+        const selects = [buildSelect, statusSelect];
         selects.forEach(select => {
             select.addEventListener('change', async () => {
                 try {
@@ -27,7 +26,6 @@ const loadData = async () => {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
         const status = statusSelect.value;
-        const roomNumber = roomNumberInput.value;
 
         const response = await axios.get(`${BASE_URL}/hotel?building=${building}`)
 

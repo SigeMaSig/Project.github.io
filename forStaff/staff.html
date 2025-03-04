@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div>เลือกตึก</div>
+            <select name="building" id="building">
+                <option name="building" value="building1">1 </option>
+                <option name="building" value="building2">2</option>
+            </select>
+            <div>
+                <div>เลขห้อง</div>
+                <input type="text" name="room_number">
+                <button class="submit" onclick="submit()">ค้นหา</button>
+            </div>
+        </div>
+        <div>Edit Rooms</div>
+        <div>
+            <div>ประเภทห้อง</div>
+            <input type="text" name="room_type">
+        </div>
+        <div>
+            <div>ราคา</div>
+            <input type="number" name="price">
+        </div>
+        <div>
+            <div>สถานะ</div>
+            <input type="text" name="status">
+        </div>
+        <div>
+            <div>ชั้นที่</div>
+            <input type="text" name="description">
+        </div>
+        <div>
+            <div>รายละเอียด</div>
+            <input type="text" name="room_details">
+        </div>
+        <div>
+            <button class="submit">บันทึก</button>
+        </div>
+    </div>
+    <div id="test"></div>
+    <a href="../index.html">Home Page</a>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="EditRoom.js"></script>
+</body>
+</html>

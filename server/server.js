@@ -19,6 +19,19 @@ app.get('/hotel', async (req, res) => {
   }
 });
 
+app.get('/edit',async(req,res)=>{
+  try {
+    const rooms = req.query.rooms;
+    if(!rooms){
+      return res.status(400).send({error:'ไม่มีห้อง'})
+    }
+    const data = await roomData(rooms)
+    res.send(data)
+  } catch (error) {
+    res.status(500).send({error:error.message})
+  }
+})
+
 app.listen(port, () => {
   console.log(`Run server at port ${port}`);
 });

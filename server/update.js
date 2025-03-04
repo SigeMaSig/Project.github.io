@@ -1,7 +1,7 @@
-// readData.js
+// update.js
 const supabase = require('./conn'); 
 
-const readData = async (building) => {
+const updateData = async (building) => {
   let build_rooms = '';
   if (building === 'building1') {
     build_rooms = 'building1_rooms';  
@@ -12,7 +12,9 @@ const readData = async (building) => {
   
 let { data: data, error } = await supabase
 .from(build_rooms)
-.select('*')        
+.select('*')
+
+         
 
   if (error) {
     throw new Error(error.message);  
@@ -21,4 +23,4 @@ let { data: data, error } = await supabase
   return data;  
 };
 
-module.exports = readData ;
+module.exports = updateData;

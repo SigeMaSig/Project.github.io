@@ -2,10 +2,11 @@ const BASE_URL = 'http://localhost:5432';
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
+const roomNumberInput = document.querySelector('input[name="room_number"]');
 
 window.onload = async () => {
     try {
-        const selects = [buildSelect, statusSelect];
+        const selects = [buildSelect, statusSelect, roomNumberInput];
         selects.forEach(select => {
             select.addEventListener('change', async () => {
                 try {
@@ -15,7 +16,7 @@ window.onload = async () => {
                 } 
             });
         });
-        await loadData();
+        await loadData()
     } catch (error) {
         console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
     }
@@ -26,6 +27,7 @@ const loadData = async () => {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
         const status = statusSelect.value;
+        const roomNumber = roomNumberInput.value;
 
         const response = await axios.get(`${BASE_URL}/hotel?building=${building}`)
 
@@ -33,13 +35,12 @@ const loadData = async () => {
             userDOM.innerHTML = "<p>ไม่มีข้อมูลห้องพัก</p>";
             return;
         }
-
         let board = '';
         response.data.forEach((room) => {
             if (status === 'All' || room.status === status) {
                 board += `
                 <div class="${room.status === 'Available' ? 'Available' : 'Occupied'}">
-                    <p>ห้องที่: ${room.room_number}</p>
+                    <p>ห้องที่: ${room.room_number ? room.room_number : 'ไม่ระบุ'}</p>
                     <p>ประเภท: ${room.room_type}</p>
                     <p>ราคา: ${room.price} บาท</p>
                     <p>สถานะ: ${room.status === 'Available' ? 'ว่าง' : 'ไม่ว่าง'}</p>
@@ -48,7 +49,6 @@ const loadData = async () => {
                 </div>`;
             }
         });
-
         userDOM.className = 'flex-container';
         userDOM.innerHTML = board;
     } catch (error) {
@@ -56,4 +56,3 @@ const loadData = async () => {
         document.getElementById('test').innerHTML = "<p>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>";
     }
 }
-

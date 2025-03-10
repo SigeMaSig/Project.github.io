@@ -9,6 +9,7 @@ submit();
 
 let submit = async () =>{
     let a = document.querySelector('input[name="room_number"]').value;
+    let building = buildSelect.value
     const response = await axios.get(`${BASE_URL}/hotel`, {
         params: { building },
         headers: {

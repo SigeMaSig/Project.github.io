@@ -1,4 +1,4 @@
-const BASE_URL = "https://531e-171-7-22-114.ngrok-free.app";
+const BASE_URL = " https://31a8-171-7-22-114.ngrok-free.app";
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');

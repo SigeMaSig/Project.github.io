@@ -29,7 +29,7 @@ const loadData = async () => {
         const response = await axios.get(`${BASE_URL}/hotel`, {
             params: { building },
             headers: {
-                "ngrok-skip-browser-warning": "true"
+                "ngrok-skip-browser-warning": "false"
             }
         });
         console.log(response.data);

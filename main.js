@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.88.193:5432';
+const BASE_URL = "http://localhost:4040" && 'https://9632-171-7-22-114.ngrok-free.app ';
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
@@ -9,13 +9,13 @@ window.onload = async () => {
         selects.forEach(select => {
             select.addEventListener('change', async () => {
                 try {
-                    await loadData(); 
+                    await loadData();
                 } catch (error) {
                     console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-                } 
+                }
             });
         });
-        await loadData()
+        await loadData();
     } catch (error) {
         console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
     }
@@ -26,7 +26,8 @@ const loadData = async () => {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
         const status = statusSelect.value;
-        const response = await axios.get(`${BASE_URL}/hotel?building=${building}`)
+        const response = await axios.get(`${BASE_URL}/hotel?building=${building}`);
+        console.log(response.data);
 
         if (!response.data || response.data.length === 0) {
             userDOM.innerHTML = "<p>ไม่มีข้อมูลห้องพัก</p>";
@@ -53,3 +54,4 @@ const loadData = async () => {
         document.getElementById('test').innerHTML = "<p>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>";
     }
 }
+

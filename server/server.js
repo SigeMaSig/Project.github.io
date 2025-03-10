@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const readData = require('./read');  
-const port = 5432;
+const port = 4040;
 app.use(express.json());
 app.use(cors());
 
@@ -32,7 +32,7 @@ app.get('/edit',async(req,res)=>{
   }
 })
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server running at http://0.0.0.0:${port}`);
+app.listen(port,() => {
+  console.log(`Server running at ${port}`);
 });
 

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.88.193:5432';
+const BASE_URL = 'http://localhost:5432';
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');

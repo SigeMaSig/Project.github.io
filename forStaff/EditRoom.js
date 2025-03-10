@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5432';
+const BASE_URL = 'http://192.168.88.193:5432';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 const selectedRoom = document.querySelector('input[name ="room_number"]').value;
@@ -33,7 +33,7 @@ let submit = async () =>{
         roomType.value = selectedRoomData.room_type;
         price.value = selectedRoomData.price;
         status_room.value = selectedRoomData.status;
-        description.value = selectedRoomData.description
+        description.value = selectedRoomData.description;
         roomDetails.value = selectedRoomData.room_details;
     }
 }

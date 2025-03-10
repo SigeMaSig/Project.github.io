@@ -1,22 +1,23 @@
-const BASE_URL = 'https://localhost:3000';
+const BASE_URL = 'https://8859-171-7-22-114.ngrok-free.app';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 const selectedRoom = document.querySelector('input[name ="room_number"]').value;
 
 window.onload = async () => {
-const Edit = async () => {
-    try {
-        const response = await axios.put(`${BASE_URL}/editroom`, editRooms);
-        console.log(response.data);
-    } catch (error) {
-        console.error("เกิดข้อผิดพลาดในการแก้ไขข้อมูล:", error);
-    }
-}
+submit();
 }
 
 let submit = async () =>{
     let a = document.querySelector('input[name="room_number"]').value;
-    const response = await axios.get(`${BASE_URL}/hotel?building=${buildSelect.value}`);
+    const response = await axios.get(`${BASE_URL}/hotel`, {
+        params: { building },
+        headers: {
+            "ngrok-skip-browser-warning": "true",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Access-Control-Allow-Headers": "Content-Type"
+        }
+    });
     const editRooms = response.data;
     
     const roomType = document.querySelector('input[name="room_type"]');

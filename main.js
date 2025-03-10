@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4040" && 'https://9632-171-7-22-114.ngrok-free.app ';
+const BASE_URL = "https://531e-171-7-22-114.ngrok-free.app";
 
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
@@ -26,7 +26,12 @@ const loadData = async () => {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
         const status = statusSelect.value;
-        const response = await axios.get(`${BASE_URL}/hotel?building=${building}`);
+        const response = await axios.get(`${BASE_URL}/hotel`, {
+            params: { building },
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            }
+        });
         console.log(response.data);
 
         if (!response.data || response.data.length === 0) {

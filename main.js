@@ -26,7 +26,6 @@ const loadData = async () => {
         const userDOM = document.getElementById('test');
         const building = buildSelect.value;
         const status = statusSelect.value;
-
         const response = await axios.get(`${BASE_URL}/hotel?building=${building}`)
 
         if (!response.data || response.data.length === 0) {

@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const readData = require('./read');  
 const port = 5432;
-
+app.use(express.json());
 app.use(cors());
 
 app.get('/hotel', async (req, res) => { 

@@ -3,39 +3,34 @@ body {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(255, 233, 233);
+    background-color: azure;
     padding: 20px;
-}
-
-*, *::before, *::after {
-	box-sizing: border-box;
-}
-
-@keyframes rotate {
-	100% {
-		transform: rotate(1turn);
-	}
+    box-sizing: border-box;
 }
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: azure;
 }
 
 .flex-container > div {
     text-align: center;
     margin: 10px;
-    padding: 20px;
-    flex: 1 1 calc(50% - 20px);
-    border-radius: 20px;
-    overflow: hidden;
+    flex: 1 1 calc(50% - 20px); 
+    box-sizing: border-box;
     position: relative;
-	z-index: 1;
+	z-index: 0;
+	width: 400px;
+	height: 300px;
+	border-radius: 10px;
+	overflow: hidden;
+    padding: 2rem;
 
     &::before {
 		content: '';
 		position: absolute;
-		z-index: -1;
+		z-index: -2;
 		left: -50%;
 		top: -50%;
 		width: 200%;
@@ -48,16 +43,24 @@ body {
 		animation: rotate 4s linear infinite;
 	}
 }
-
 @keyframes opacityChange {
-	100% {
+	50% {
 		opacity:1;
 	}
 	100% {
-		opacity: 1;
+		opacity: .5;
 	}
 }
-.Available {
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+.Available{
     &::after {
 		content: '';
 		position: absolute;
@@ -66,31 +69,25 @@ body {
 		top: 6px;
 		width: calc(100% - 12px);
 		height: calc(100% - 12px);
-		background: rgb(108, 237, 112);
+		background: rgb(187, 246, 181);
 		border-radius: 5px;
-        border: 1px;
+		
 	}
+    background-color: #399953;
 }
 
 .Occupied {
     &::after {
 		content: '';
-		position:absolute;
+		position: absolute;
 		z-index: -1;
 		left: 6px;
 		top: 6px;
 		width: calc(100% - 12px);
 		height: calc(100% - 12px);
-		background: rgb(252, 103, 103);
-		border-radius: 5px;
-        border: 1px;
+		background: rgb(251, 62, 62);
+		border-radius: 5px;	
 	}
-}
-
-
-@media screen and (max-width: 425px) {
-    .flex-container > div {
-        flex: 1 1 100%;
-    }
+    background-color: #399953; 
 }
 

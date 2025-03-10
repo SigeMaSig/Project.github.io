@@ -29,7 +29,10 @@ const loadData = async () => {
         const response = await axios.get(`${BASE_URL}/hotel`, {
             params: { building },
             headers: {
-                "ngrok-skip-browser-warning": "false"
+                "ngrok-skip-browser-warning": "true",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+                "Access-Control-Allow-Headers": "Content-Type"
             }
         });
         console.log(response.data);

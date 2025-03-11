@@ -4,33 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .flex-container {
-            display: flex;
-        }
-        a{
-            color: green;
-            background-color: transparent;
-            text-decoration: none;
-          }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <center><h3>Edit Rooms</h3></center>
         <div>
-            <div>เลือกตึก</div>
-            <select name="building" id="building">
-                <option name="building" value="building1">1 </option>
-                <option name="building" value="building2">2</option>
-            </select>
+            <div>เลือกตึก
+                <select name="building" id="building">
+                    <option name="building" value="building1">1 </option>
+                    <option name="building" value="building2">2</option>
+                </select>
+            </div>
             <div class="flex-container">
-                <div>เลขห้อง</div>
+                <div style="margin: 10px" >เลขห้อง</div>
                 <input type="text" name="room_number">
-                <button class="submit" onclick="submit()" type="submit">ค้นหา</button>
+                <button style="margin: 10px" class="submit" onclick="submit()">ค้นหา</button>
                 <div>ใส่เลขห้องและกดค้นหา</div>
             </div>
         </div>
-        <div>Edit Rooms</div>
         <div>
             <div>ประเภทห้อง</div>
             <input type="text" name="room_type">
@@ -51,8 +43,8 @@
             <div>รายละเอียด</div>
             <input type="text" name="room_details">
         </div>
-        <div>
-            <button class="submit">บันทึก</button>
+        <div style="text-align: center ; margin-top: 10px;">
+            <button class="submit" onclick="saveChanges()">บันทึก</button>
         </div>
     </div>
     <div id="test"></div>
@@ -61,3 +53,4 @@
     <script src="EditRoom.js"></script>
 </body>
 </html>
+

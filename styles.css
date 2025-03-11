@@ -96,3 +96,8 @@ a{
     background-color: #399953; 
 }
 
+@media screen and (max-width: 600px) {
+	.flex-container > div {
+		flex: 1 1 calc(100% - 20px); 
+	}
+}

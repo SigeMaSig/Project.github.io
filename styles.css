@@ -8,6 +8,11 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
+a{
+	color: green;
+	background-color: transparent;
+	text-decoration: none;
+  }
 
 .flex-container {
     display: flex;

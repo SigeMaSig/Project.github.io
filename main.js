@@ -40,14 +40,14 @@ const loadData = async () => {
             return;
         }
         let board = '';
-        response.data.sort((a, b) => a.room_number - b.room_number).forEach((room) => {
+        response.data.sort((max,min) => max.room_number - min.room_number).forEach((room) => {
         if (status === 'All' || room.status === status) {
             board += `
             <div class="${room.status === 'Available' ? 'Available' : 'Occupied'}">
                 <p>ห้องที่: ${room.room_number}</p>
                 <p>ประเภท: ${room.room_type}</p>
                 <p>ราคา: ${room.price} บาท</p>
-                <p>สถานะ: ${room.status === 'Available' ? 'ว่าง' : 'ไม่ว่าง'}</p>
+                <p>สถานะ: ${room.status}</p>
                 <p>ชั้นที่: ${room.description}</p>
                 <p>รายละเอียด: ${room.room_details}</p>
             </div>`;

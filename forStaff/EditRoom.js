@@ -4,7 +4,7 @@ const statusSelect = document.querySelector('select[name="status"]');
 const selectedRoom = document.querySelector('input[name ="room_number"]').value;
 
 window.onload = async () => {
-submit();
+
 }
 
 let submit = async () =>{

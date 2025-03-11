@@ -28,19 +28,16 @@ let submit = async () =>{
     const roomDetails = document.querySelector('input[name="room_details"]');
      
     const selectedRoomData = editRooms.find(room => room.room_number.toString() === a);
-    
-    addEventListener('click', submit = () => {
-        if(!selectedRoomData){
-            document.getElementById('test').innerText = 'กรอกเลขห้องไม่ถูกต้อง'
-        }
-        if (selectedRoomData) {
-            roomType.value = selectedRoomData.room_type;
-            price.value = selectedRoomData.price;
-            status_room.value = selectedRoomData.status;
-            description.value = selectedRoomData.description
-            roomDetails.value = selectedRoomData.room_details;
-        }
-    })  
+    if(!selectedRoomData){
+        document.getElementById('test').innerText = 'กรอกเลขห้องไม่ถูกต้อง'
+    }
+    if (selectedRoomData) {
+        roomType.value = selectedRoomData.room_type;
+        price.value = selectedRoomData.price;
+        status_room.value = selectedRoomData.status;
+        description.value = selectedRoomData.description
+        roomDetails.value = selectedRoomData.room_details;
+    }
 }
 
 

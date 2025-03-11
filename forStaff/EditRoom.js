@@ -1,4 +1,4 @@
-const BASE_URL = 'https://8859-171-7-22-114.ngrok-free.app';
+const BASE_URL = 'https://563d-171-7-22-114.ngrok-free.app';
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 const selectedRoom = document.querySelector('input[name ="room_number"]').value;
@@ -28,16 +28,19 @@ let submit = async () =>{
     const roomDetails = document.querySelector('input[name="room_details"]');
      
     const selectedRoomData = editRooms.find(room => room.room_number.toString() === a);
-    if(!selectedRoomData){
-        document.getElementById('test').innerText = 'กรอกเลขห้องไม่ถูกต้อง'
-    }
-    if (selectedRoomData) {
-        roomType.value = selectedRoomData.room_type;
-        price.value = selectedRoomData.price;
-        status_room.value = selectedRoomData.status;
-        description.value = selectedRoomData.description
-        roomDetails.value = selectedRoomData.room_details;
-    }
+    
+    addEventListener('click', submit = () => {
+        if(!selectedRoomData){
+            document.getElementById('test').innerText = 'กรอกเลขห้องไม่ถูกต้อง'
+        }
+        if (selectedRoomData) {
+            roomType.value = selectedRoomData.room_type;
+            price.value = selectedRoomData.price;
+            status_room.value = selectedRoomData.status;
+            description.value = selectedRoomData.description
+            roomDetails.value = selectedRoomData.room_details;
+        }
+    })  
 }
 
 

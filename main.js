@@ -1,5 +1,4 @@
-const BASE_URL = 'https://002e-171-7-22-114.ngrok-free.app';
-
+const BASE_URL = 'http://localhost:3000'; //http://localhost:3000
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 
@@ -60,4 +59,3 @@ const loadData = async () => {
         document.getElementById('test').innerHTML = "<p>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>";
     }
 }
-

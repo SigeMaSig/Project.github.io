@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000'; //http://localhost:3000
+const BASE_URL = 'https://5c04-171-6-82-135.ngrok-free.app'; //http://localhost:3000 //ngrok http http://localhost:8080
 const buildSelect = document.querySelector('select[name="building"]');
 const statusSelect = document.querySelector('select[name="status"]');
 const selectedRoom = document.querySelector('input[name ="room_number"]').value;

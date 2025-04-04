@@ -1,4 +1,4 @@
-const BASE_URL = 'https://5c04-171-6-82-135.ngrok-free.app'; //http://localhost:3000 //ngrok http http://localhost:8080
+const BASE_URL = 'https://1d49-171-6-28-236.ngrok-free.app'; //http://localhost:3000 //ngrok http http://localhost:8080
 
 window.onload = async () => {
 

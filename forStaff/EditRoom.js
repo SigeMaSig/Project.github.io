@@ -1,4 +1,4 @@
-const BASE_URL = 'https://2f44-171-6-28-236.ngrok-free.app'; //http://localhost:3000 //ngrok http http://localhost:8080
+const BASE_URL = 'http://localhost:3000'; //http://localhost:3000 //ngrok http http://localhost:8080
 
 window.onload = async () => {
 
@@ -90,19 +90,21 @@ const submit = async () => {
         }
 
         // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-        // await axios.put(`${BASE_URL}/hotel`, userData, {
-        //     headers: {
-        //         "ngrok-skip-browser-warning": "true",
-        //         "Access-Control-Allow-Origin": "*",
-        //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        //         "Access-Control-Allow-Headers": "Content-Type"
-        //     }
-        // });
+        await axios.put(`${BASE_URL}/edit`, userData, {
+            params: { building },
+            headers: {
+                "ngrok-skip-browser-warning": "true",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Content-Type": "application/json"
+            }
+        });
 
-        // alert('บันทึกเรียบร้อย');
+        alert('บันทึกเรียบร้อย');
 
-        // เคลียร์ค่าฟอร์มหลังจากบันทึกสำเร็จ
-        clearForm();
+        // // เคลียร์ค่าฟอร์มหลังจากบันทึกสำเร็จ
+        // clearForm();
 
     } catch (error) {
         console.log('Error Message:', error.message);

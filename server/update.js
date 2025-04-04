@@ -1,7 +1,7 @@
 // update.js
 const supabase = require('./conn'); 
 
-const updateData = async (building) => {
+const updateData = async (building, updateRoom) => {
   let build_rooms = '';
   if (building === 'building1') {
     build_rooms = 'building1_rooms';  
@@ -12,6 +12,7 @@ const updateData = async (building) => {
   
 let { data: data, error } = await supabase
 .from(build_rooms)
+.update(updateRoom)
 .select('*')
 
          

@@ -18,7 +18,7 @@ const validate = (userData) => {
 const search = async () => {
     let search_numRoom = document.querySelector('input[name="room_number"]').value;
     let building = document.querySelector('select[name="building"]').value;
-
+    document.querySelector('input[name="room_number"]').disabled = true
     try {
         const response = await axios.get(`${BASE_URL}/hotel`, {
             params: { building },
